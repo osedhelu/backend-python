@@ -1,0 +1,29 @@
+@path=http://3.211.175.171:8002/api
+
+## List all Companies
+GET {{path}}/companies/ HTTP/1.1
+
+
+### Register New Company
+POST {{path}}/companies/ HTTP/1.1
+content-type: application/json
+
+{
+    "name": "sample02",
+    "website": "http://sample02.com",
+    "foundation": "2011"
+}
+
+### Register Edit Company
+PUT {{path}}/companies/1 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "sample055",
+    "website": "http://sample033.com",
+    "foundation": "2033"
+}
+
+### Delete Company
+DELETE  {{path}}/companies/5 HTTP/1.1
+content-type: application/json

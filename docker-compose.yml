@@ -1,0 +1,43 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7
+    container_name: db
+    environment:
+      MYSQL_ROOT_PASSWORD: ADMadm1234*
+      MYSQL_DATABASE: djangoDB
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: ADMadm1234
+    ports:
+      - '6033:3306'
+    volumes:
+      - ./mysqlDB/var/run/mysqld:/var/run/mysqld
+      - ./mysqlDB/db:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: pma
+    links:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8081:80
+  web:
+    build: .
+    command:  python manage.py runserver 0.0.0.0:8000
+    ports:
+      - '8002:8000'
+    volumes:
+      - ./api:/app/api
+      - ./Project_API:/app/Project_API
+      - ./manage.py:/app/manage.py
+      - ./mysqlDB/var/run/mysqld:/run/mysqld
+    links:
+      - db
+    depends_on:
+      - db
+volumes:
+  mysqlDB:

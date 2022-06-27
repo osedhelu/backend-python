@@ -1,0 +1,4 @@
+api/__pycache__
+Project_API/__pycache__
+mysqlDB/*
+api/migrations
