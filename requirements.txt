@@ -1,3 +1,4 @@
 Django==3.2.4
 mysqlclient==2.1.1
 pymysql==1.0.2
+excel2json-3

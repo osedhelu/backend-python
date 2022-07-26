@@ -81,7 +81,7 @@ DATABASES = {
         'PORT': '3306',
         'USER': 'admin',
         'PASSWORD': 'ADMadm1234',
-        'NAME': 'djangoDB',
+        'NAME': 'laravel',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
         }
